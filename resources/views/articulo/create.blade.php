@@ -1,32 +1,37 @@
 @extends('adminlte::page')
 
-@section('title', 'CRUD con Laravel 8')
+@section('title', 'Prueba')
 
 @section('content_header')
-   <h1>Crear Artículo</h1>
+   <h1>Crear Cita</h1>
 @stop
 
 @section('content')
     
-<form action="/articulos" method="POST">
+<form action="/citas" method="POST">
   @csrf
   <div class="mb-3">
-    <label for="" class="form-label">Código</label>
-    <input id="codigo" name="codigo" type="text" class="form-control" tabindex="1">    
+    <label for="" class="form-label">Nombre de Doctor</label>
+    <input id="doctor" name="doctor" type="text" class="form-control" tabindex="1">    
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">Descripción</label>
-    <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2">
+    <label for="" class="form-label">Sucursal</label>
+    <input id="sucursal" name="sucursal" type="text" class="form-control" tabindex="2">
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">Cantidad</label>
-    <input id="cantidad" name="cantidad" type="number" class="form-control" tabindex="3">
+    <label for="" class="form-label">Departamento</label>
+    <input id="departamento" name="departamento" type="text" class="form-control" tabindex="3">
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">Precio</label>
-    <input id="precio" name="precio" type="number" step="any" value="0.00" class="form-control" tabindex="3">
+    <label for="" class="form-label">Tipo de Servicio</label>
+    <input id="tipo_servicio" name="tipo_servicio"  class="form-control" tabindex="3">
   </div>
-  <a href="/articulos" class="btn btn-secondary" tabindex="5">Cancelar</a>
+  <div class="mb-3">
+    <label for="" class="form-label">Fecha de Cita</label>
+    <input id="fecha" name="fecha"  type ="datetime-local"class="form-control" tabindex="3">
+  </div>
+
+  <a href="/citas" class="btn btn-secondary" tabindex="5">Cancelar</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
 </form>
 @stop

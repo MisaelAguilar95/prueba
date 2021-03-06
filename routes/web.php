@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('articulos','App\Http\Controllers\ArticuloController');
+Route::resource('citas','App\Http\Controllers\ArticuloController');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

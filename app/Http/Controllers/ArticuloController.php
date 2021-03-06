@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Articulo;
+use App\Models\Cita;
 
 class ArticuloController extends Controller
 {
@@ -17,7 +17,7 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        $articulos = Articulo::all();
+        $articulos = Cita::all();
         return view('articulo.index')->with('articulos',$articulos);
     }
 
@@ -39,16 +39,17 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {        
-        $articulos = new Articulo();
+        $articulos = new Cita();
 
-        $articulos->codigo = $request->get('codigo');
-        $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
-        $articulos->precio = $request->get('precio');
+        $articulos->doctor = $request->get('doctor');
+        $articulos->sucursal = $request->get('sucursal');
+        $articulos->departamento = $request->get('departamento');
+        $articulos->tipo_servicio = $request->get('tipo_servicio');
+        $articulos->fecha = $request->get('fecha');
 
         $articulos->save();
 
-        return redirect('/articulos');
+        return redirect('/citas');
 
     }
 
@@ -71,7 +72,7 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        $articulo = Articulo::find($id);
+        $articulo = Cita::find($id);
         return view('articulo.edit')->with('articulo',$articulo);
     }
 
@@ -84,16 +85,17 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $articulo = Articulo::find($id);
+        $articulo = Cita::find($id);
 
-        $articulo->codigo = $request->get('codigo');
-        $articulo->descripcion = $request->get('descripcion');
-        $articulo->cantidad = $request->get('cantidad');
-        $articulo->precio = $request->get('precio');
+        //$articulo->doctor = $request->get('doctor');
+        $articulo->sucursal = $request->get('sucursal');
+        $articulo->departamento = $request->get('departamento');
+        $articulo->tipo_servicio = $request->get('tipo_servicio');
+        $articulo->fecha = $request->get('fecha');
 
         $articulo->save();
 
-        return redirect('/articulos');
+        return redirect('/citas');
     }
 
     /**
@@ -104,8 +106,8 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        $articulo = Articulo::find($id);
+        $articulo = Cita::find($id);
         $articulo->delete();
-        return redirect('/articulos');
+        return redirect('/citas');
     }
 }
