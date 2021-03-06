@@ -11,7 +11,7 @@ return [
     'level_one'                     => 'Level 1',
     'level_two'                     => 'Level 2',
     'level_three'                   => 'Level 3',
-    'labels'                        => 'LABEL',
+    'labels'                        => 'ESTATUS',
     'important'                     => 'Important',
     'warning'                       => 'Warning',
     'information'                   => 'Information',
